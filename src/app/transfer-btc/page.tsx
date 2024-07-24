@@ -9,6 +9,7 @@ import { useEffect, useState } from "react";
 import { ActionGetResponse, LinkedAction } from "@solana/actions";
 
 const ActionCard = ({ action }: { action: LinkedAction }) => {
+  console.log("file: page.tsx:12 ~ ActionCard ~ action:", action);
   const [response, setResponse] = useState("");
 
   useEffect(() => {
@@ -26,11 +27,13 @@ const ActionCard = ({ action }: { action: LinkedAction }) => {
         <div>{action.href}</div>
         <p className="text-muted-foreground">
           <Link
-            href={`chainbow3-action:${response}`}
+            href={`chainbow3-action:?actions=${encodeURIComponent(
+              action.href,
+            )}`}
             target="_blank"
             className="underline hover:text-primary"
           >
-            {`chainbow3-action:${response}`}
+            {`chainbow3-action:?actions=${encodeURIComponent(action.href)}`}
           </Link>
         </p>
       </CardContent>
@@ -50,7 +53,8 @@ export default function Pages() {
       .then((res) => res.json())
       .then((res) => {
         setAGR(res);
-      });
+      })
+      .catch();
   }, []);
 
   return (
@@ -102,11 +106,11 @@ export default function Pages() {
         <CardContent className="space-y-2">
           <p className="text-muted-foreground">
             <Link
-              href={`chainbow3-action:${apiEndpoint}`}
+              href={`chainbow3-action:?actions=${apiEndpoint}`}
               target="_blank"
               className="underline hover:text-primary"
             >
-              {`chainbow3-action:${apiEndpoint}`}
+              {`chainbow3-action:?actions=${apiEndpoint}`}
             </Link>
           </p>
         </CardContent>
