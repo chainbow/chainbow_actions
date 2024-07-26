@@ -1,45 +1,12 @@
 "use client";
 
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { SolanaQRCode } from "@/components/qr-code";
 import { Button } from "@/components/ui/button";
-import Link from "next/link";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { siteConfig } from "@/config/site";
+import { ActionGetResponse } from "@solana/actions";
+import Link from "next/link";
 import { useEffect, useState } from "react";
-import { ActionGetResponse, LinkedAction } from "@solana/actions";
-
-const ActionCard = ({ action }: { action: LinkedAction }) => {
-  console.log("file: page.tsx:12 ~ ActionCard ~ action:", action);
-  const [response, setResponse] = useState("");
-
-  useEffect(() => {
-    fetch(action.href, { method: "POST" })
-      .then((res) => res.json())
-      .then((res) => setResponse(JSON.stringify(res)));
-  }, [action.href]);
-
-  return (
-    <Card key={action.label} className="group-hover:border-primary">
-      <CardHeader>
-        <CardTitle className="space-y-3">{action.label}</CardTitle>
-      </CardHeader>
-      <CardContent className="space-y-2">
-        <div>{action.href}</div>
-        <p className="text-muted-foreground">
-          <Link
-            href={`note-action:${encodeURIComponent(
-              action.href,
-            )}`}
-            target="_blank"
-            className="underline hover:text-primary"
-          >
-            {`note-action:${encodeURIComponent(action.href)}`}
-          </Link>
-        </p>
-      </CardContent>
-    </Card>
-  );
-};
 
 export default function Pages() {
   const apiPath = "/api/actions/transfer-btc";
@@ -115,12 +82,6 @@ export default function Pages() {
           </p>
         </CardContent>
       </Card>
-
-      <div className="flex gap-4 flex-wrap">
-        {agr?.links?.actions.map((action) => (
-          <ActionCard key={action.label} action={action} />
-        ))}
-      </div>
     </section>
   );
 }
