@@ -16,7 +16,7 @@ export function SolanaQRCode({
   className,
   background = "transparent",
   color,
-  size = 400,
+  size = 300,
 }: ComponentProps) {
   const ref = useRef<HTMLDivElement>(null);
   useEffect(() => {

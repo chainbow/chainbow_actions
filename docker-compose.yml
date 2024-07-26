@@ -1,0 +1,24 @@
+version: "3.5"
+
+services:
+  action_demo:
+    container_name: action_demo
+    restart: always
+    environment:
+      - NODE_ENV=production
+      - VIRTUAL_HOST=action.mydapp.io
+      - VIRTUAL_PORT=3000
+      - LETSENCRYPT_HOST=action.mydapp.io
+      - LETSENCRYPT_EMAIL=lilong@chainbow.io
+    build:
+      context: ./
+    command: pnpm start
+    volumes:
+      - ./logs/utxo:/app/logs
+    ports:
+      - "3007:3000"
+
+networks:
+  default:
+    name: shared
+    external: true
