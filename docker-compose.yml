@@ -16,7 +16,7 @@ services:
     volumes:
       - ./logs/utxo:/app/logs
     ports:
-      - "3007:3000"
+      - "3207:3000"
 
 networks:
   default:
