@@ -27,13 +27,13 @@ const ActionCard = ({ action }: { action: LinkedAction }) => {
         <div>{action.href}</div>
         <p className="text-muted-foreground">
           <Link
-            href={`chainbow3-action:?actions=${encodeURIComponent(
+            href={`note-action:${encodeURIComponent(
               action.href,
             )}`}
             target="_blank"
             className="underline hover:text-primary"
           >
-            {`chainbow3-action:?actions=${encodeURIComponent(action.href)}`}
+            {`note-action:${encodeURIComponent(action.href)}`}
           </Link>
         </p>
       </CardContent>
@@ -105,13 +105,13 @@ export default function Pages() {
         </CardHeader>
         <CardContent className="space-y-2">
           <p className="text-muted-foreground">
-            <Link
-              href={`chainbow3-action:?actions=${apiEndpoint}`}
+            <a
+              href={`note-action:${apiEndpoint}`}
               target="_blank"
               className="underline hover:text-primary"
             >
-              {`chainbow3-action:?actions=${apiEndpoint}`}
-            </Link>
+              {`note-action:${apiEndpoint}`}
+            </a>
           </p>
         </CardContent>
       </Card>

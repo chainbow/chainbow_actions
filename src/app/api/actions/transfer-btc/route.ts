@@ -32,33 +32,34 @@ export const GET = async (req: Request) => {
     const payload: ActionGetResponse = {
       title: "Actions Example - Transfer Native BTC",
       icon: new URL("/solana_devs.jpg", requestUrl.origin).toString(),
-      description: "Transfer BTC to another Solana wallet",
+      description: "Transfer BTC to another Note Wallet",
       label: "Transfer", // this value will be ignored since `links.actions` exists
+      // network: "BTCtestnet",
       links: {
         actions: [
           {
             label: "Send 0.01 BTC", // button text
-            href: `${baseHref}&amount=${"0.01"}`,
+            href: `bitcoin:tb1qh306txm3prswcce7vc3ndp977n2dht2g3305nv?amount=0.01&tick=NOTE&label=Luke-Jr`,
           },
           {
             label: "Send 0.1 BTC", // button text
-            href: `${baseHref}&amount=${"0.1"}`,
+            href: `bitcoin:tb1qh306txm3prswcce7vc3ndp977n2dht2g3305nv?amount=0.1&tick=NOTE&label=Luke-Jr`,
           },
           {
             label: "Send 1 BTC", // button text
-            href: `${baseHref}&amount=${"1"}`,
+            href: `bitcoin:tb1qh306txm3prswcce7vc3ndp977n2dht2g3305nv?amount=1&tick=NOTE&label=Luke-Jr`,
           },
-          {
-            label: "Send BTC", // button text
-            href: `${baseHref}&amount={amount}`, // this href will have a text input
-            parameters: [
-              {
-                name: "amount", // parameter name in the `href` above
-                label: "Enter the amount of BTC to send", // placeholder of the text input
-                required: true,
-              },
-            ],
-          },
+          // {
+          //   label: "Send BTC", // button text
+          //   href: `${baseHref}&amount={amount}`, // this href will have a text input
+          //   parameters: [
+          //     {
+          //       name: "amount", // parameter name in the `href` above
+          //       label: "Enter the amount of BTC to send", // placeholder of the text input
+          //       required: true,
+          //     },
+          //   ],
+          // },
         ],
       },
     };
