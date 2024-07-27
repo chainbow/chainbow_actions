@@ -1,14 +1,14 @@
 import { SiteConfig } from "@/types";
 
 export const siteConfig: SiteConfig = {
-  name: "Note Actions and Blinks",
+  name: "Bitcoin/Note Actions and Blinks",
   description: "",
   url: "https://",
   ogImage: "https://tx.shadcn.com/og.jpg",
   links: {
-    twitter: "https://twitter.com/nickfrosty",
+    twitter: "https://twitter.com/lilong",
     github:
-      "https://github.com/solana-developers/solana-actions/tree/main/examples/next-js",
-    docs: "https://solana.com/docs/advanced/actions",
+      "https://github.com/noteprotocol",
+    docs: "https://note.protocol",
   },
 };

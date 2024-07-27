@@ -31,7 +31,7 @@ export const GET = async (req: Request) => {
 
     const payload: ActionGetResponse = {
       title: "Actions Example - Transfer Native BTC",
-      icon: new URL("/solana_devs.jpg", requestUrl.origin).toString(),
+      icon: new URL("/bitcoin.svg", requestUrl.origin).toString(),
       description: "Transfer BTC to another Note Wallet",
       label: "Transfer", // this value will be ignored since `links.actions` exists
       // network: "BTCtestnet",

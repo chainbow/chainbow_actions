@@ -25,7 +25,7 @@ export function SolanaQRCode({
         link: new URL(url, window.location.href),
       },
       //@ts-ignore
-      "note-action:",
+      "bitcoin-action:",
     );
 
     console.log("encodedUrl:", encodedUrl.toString());

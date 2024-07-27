@@ -73,11 +73,11 @@ export default function Pages() {
         <CardContent className="space-y-2">
           <p className="text-muted-foreground">
             <a
-              href={`note-action:${apiEndpoint}`}
+              href={`bitcoin-action:${apiEndpoint}`}
               target="_blank"
               className="underline hover:text-primary"
             >
-              {`note-action:${apiEndpoint}`}
+              {`bitcoin-action:${apiEndpoint}`}
             </a>
           </p>
         </CardContent>
