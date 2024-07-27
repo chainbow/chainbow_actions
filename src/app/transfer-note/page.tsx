@@ -9,7 +9,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 
 export default function Pages() {
-  const apiPath = "/api/actions/transfer-btc";
+  const apiPath = "/api/actions/transfer-note";
   const [apiEndpoint, setApiEndpoint] = useState("");
   const [agr, setAGR] = useState<ActionGetResponse>();
 
@@ -33,10 +33,10 @@ export default function Pages() {
     >
       <div className="mx-auto flex max-w-full flex-col items-center space-y-6 text-center">
         <h2 className="font-heading text-3xl leading-[1.1] sm:text-3xl md:text-6xl">
-          Transfer Native BTC
+          Transfer NOTE Token
         </h2>
         <p className="max-w-[85%] leading-normal text-muted-foreground sm:text-lg sm:leading-7">
-          The following example demonstrates how to transfer native BTC to using
+          The following example demonstrates how to transfer NOTE Protocol N20 Token to using
           an Action.
         </p>
       </div>

@@ -9,6 +9,6 @@ export const siteConfig: SiteConfig = {
     twitter: "https://twitter.com/lilong",
     github:
       "https://github.com/noteprotocol",
-    docs: "https://note.protocol",
+    docs: "https://noteprotocol.org",
   },
 };

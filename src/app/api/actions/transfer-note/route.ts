@@ -11,7 +11,7 @@ import {
   createPostResponse,
 } from "@solana/actions";
 
-import { DEFAULT_BTC_ADDRESS, DEFAULT_BTC_AMOUNT } from "./const";
+import {  DEFAULT_TOKEN_ADDRESS, DEFAULT_TOKEN_AMOUNT, DEFAULT_TOKEN_TICK } from "./const";
 
 export const GET = async (req: Request) => {
   try {
@@ -20,29 +20,29 @@ export const GET = async (req: Request) => {
     const { address } = validatedQueryParams(requestUrl);
 
     const baseHref = new URL(
-      `/api/actions/transfer-btc?to=${address}`,
+      `/api/actions/transfer-note?to=${address}`,
       host,
     ).toString();
 
     const payload: ActionGetResponse = {
-      title: "Actions Example - Transfer BTC",
-      icon: new URL("/bitcoin.png", host).toString(),
-      description: "Transfer BTC to another Bitcoin Wallet",
+      title: "Actions Example - Transfer N20 Token",
+      icon: new URL("/n20.png", host).toString(),
+      description: "Transfer NOTE to another NOTE Wallet",
       label: "Transfer", // this value will be ignored since `links.actions` exists
       // network: "BTCtestnet",
       links: {
         actions: [
           {
-            label: "Send 0.01 BTC", // button text
-            href: `bitcoin:${DEFAULT_BTC_ADDRESS}?amount=0.01&tick=NOTE&label=Luke-Jr`,
+            label: "Send 0.01 NOTE", // button text
+            href: `note:${DEFAULT_TOKEN_ADDRESS}?amount=0.01&tick=NOTE&label=Luke-Jr`,
           },
           {
-            label: "Send 0.1 BTC", // button text
-            href: `bitcoin:${DEFAULT_BTC_ADDRESS}?amount=0.1&tick=NOTE&label=Luke-Jr`,
+            label: "Send 0.1 NOTE", // button text
+            href: `note:${DEFAULT_TOKEN_ADDRESS}?amount=0.1&tick=NOTE&label=Luke-Jr`,
           },
           {
-            label: "Send 1 BTC", // button text
-            href: `bitcoin:${DEFAULT_BTC_ADDRESS}?amount=1&tick=NOTE&label=Luke-Jr`,
+            label: "Send 1 NOTE", // button text
+            href: `note:${DEFAULT_TOKEN_ADDRESS}?amount=1&tick=NOTE&label=Luke-Jr`,
           },
           // {
           //   label: "Send BTC", // button text
@@ -92,7 +92,7 @@ export const POST = async (req: Request) => {
     });
 
     return Response.json(
-      { psbtHex: psbt.toHex(), message: `Send ${amount} BTC to ${address}` },
+      { psbtHex: psbt.toHex(), message: `Send ${amount} NOTE to ${address}` },
       {
         headers: ACTIONS_CORS_HEADERS,
       },
@@ -109,8 +109,8 @@ export const POST = async (req: Request) => {
 };
 
 function validatedQueryParams(requestUrl: URL) {
-  let address = DEFAULT_BTC_ADDRESS;
-  let amount: number = DEFAULT_BTC_AMOUNT;
+  let address = DEFAULT_TOKEN_ADDRESS;
+  let amount: number = DEFAULT_TOKEN_AMOUNT;
 
   try {
     if (requestUrl.searchParams.get("to")) {
