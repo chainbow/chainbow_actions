@@ -11,7 +11,8 @@ import {
   ShieldIcon,
   WalletIcon,
   ReceiptIcon,
-  AirVentIcon
+  AirVentIcon,
+  Spline,PersonStanding
 } from "lucide-react";
 
 const actionCards: Array<{
@@ -27,9 +28,9 @@ const actionCards: Array<{
     icon: <WalletIcon className="size-12" />,
   },
   {
-    title: "Transfer N20 Tokens",
+    title: "Transfer Note Tokens",
     href: "/transfer-note",
-    description: "Easily transfer N20 tokens to any other Note wallet.",
+    description: "Easily transfer Note N20 tokens to any other Note wallet.",
     icon: <ReceiptIcon className="size-12" />,
   },
   {
@@ -45,6 +46,20 @@ const actionCards: Array<{
     description:
       "Allow anyone to claim a Free Airdrop N20 Tokens.",
     icon: <AirVentIcon className="size-12" />,
+  },
+  {
+    title: "Buy Note Assets on DEX",
+    href: "/buy-assets",
+    description:
+      "Allow anyone to buy Note Assets on DEX via onclick.",
+    icon: <Spline className="size-12" />,
+  },
+  {
+    title: "Join SNS and Game",
+    href: "/account",
+    description:
+      "Join Social network and game, pay and get items",
+    icon: <PersonStanding className="size-12" />,
   },
 ];
 
