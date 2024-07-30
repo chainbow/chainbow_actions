@@ -1,6 +1,7 @@
 "use client";
 
-import { createSolanaQR, encodeURL } from "@solana/actions";
+import { createQR } from "@/lib/createQR";
+import { encodeURL } from "@solana/actions";
 import { useEffect, useRef } from "react";
 
 type ComponentProps = {
@@ -30,7 +31,7 @@ export function SolanaQRCode({
 
     console.log("encodedUrl:", encodedUrl.toString());
 
-    const qr = createSolanaQR(encodedUrl, size, background, color);
+    const qr = createQR(encodedUrl, size, background, color);
 
     if (ref.current && !ref.current.innerHTML) {
       qr.append(ref.current);
